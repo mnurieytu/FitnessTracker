@@ -1,0 +1,27 @@
+class FitnessTracker:
+    def __init__(self):
+        self.activities = {}
+
+    def add_activity(self, activity, duration):
+        if activity in self.activities:
+            self.activities[activity] += duration
+        else:
+            self.activities[activity] = duration
+
+    def view_activities(self):
+        if not self.activities:
+            print("No activities tracked.")
+        else:
+            print("Tracked activities:")
+            for activity, duration in self.activities.items():
+                print(f"{activity}: {duration} minutes")
+
+if __name__ == '__main__':
+    fitness_tracker = FitnessTracker()
+
+    fitness_tracker.add_activity("Running", 30)
+    fitness_tracker.add_activity("Swimming", 45)
+    fitness_tracker.add_activity("Cycling", 60)
+    fitness_tracker.add_activity("Running", 15)
+
+    fitness_tracker.view_activities()
